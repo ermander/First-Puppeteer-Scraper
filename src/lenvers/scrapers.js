@@ -23,7 +23,7 @@ const lenversProductLinksScraper = async (url, page) => {
       )
       // If the scraper do not get any of the elements searched, the cicle will end
       if (links.length < 1){
-        let productsLinks = [].concat.apply([], products);
+        let productsLinks = [].concat.apply([], products)
         return productsLinks
       }else{
         // The element found will be pushed to the products array
@@ -41,7 +41,7 @@ const lenversProductLinksScraper = async (url, page) => {
 const lenversProductInfoesScraper = async (links, page) => {
   try {
     const infoes = []
-    for(let i = 65; i < links.length; i++){
+    for(let i = 0; i < links.length; i++){
       console.log(`Currently scraping page ${lenversLinks.homepage + links[i]}`)
       // Going to the specified url
       await page.goto(lenversLinks.homepage + links[i])

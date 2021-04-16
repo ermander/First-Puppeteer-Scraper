@@ -40,7 +40,7 @@ const blueVerdProductLinksScraper = async (url, page) => {
 const blueVerdProductInfoesScraper = async(links, page) => {
     try {
         const infoes = []
-        for(let i = 95; i < links.length; i++){
+        for(let i = 0; i < links.length; i++){
             console.log(`Currently scraping page ${links[i]}`)
             // Going to the specified url
             await page.goto(links[i])

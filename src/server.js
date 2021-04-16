@@ -41,12 +41,13 @@ const main = async () => {
       const blueVerdProductsLink = await blueVerdProductLinksScraper(blueVerdLinks, page)
       const bluVerdProductsInfo = await blueVerdProductInfoesScraper(blueVerdProductsLink, page)
       // Merging all the products infoes togheter
-      const allProducts = lenversProductsInfo.concat(bluVerdProductsInfo)
+      const rawAllProducts = lenversProductsInfo.concat(bluVerdProductsInfo)
+      const allProducts = [...lenversProductsInfo, ...bluVerdProductsInfo]
+      console.log(allProducts)
       // Checking if the products are made of materials we want
       const checkedProducts = checkMaterials(allProducts)
       // Generating the CVS file with all the products information
       createCVS(checkedProducts)
-      console.log(allProducts)
       // Closing the Chromnium page
       page.close()
       // Closing the Chromnium Browser
