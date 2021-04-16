@@ -27,7 +27,7 @@ const createCVS = async (list) => {
   // Adding the data to the new CVS file
   const csv = new ObjectsToCsv(list)
   // Writing the CVS file to disk
-  await csv.toDisk("./list.csv")
+  await csv.toDisk("./product.csv")
 };
 
 module.exports = { checkMaterials, createCVS }
