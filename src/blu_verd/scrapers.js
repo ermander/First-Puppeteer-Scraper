@@ -3,9 +3,9 @@ const blueVerdProductLinksScraper = async (url, page) => {
   // Iterating for every link present on the url
   for (let i = 0; i < url.length; i++) {
     /* 
-            Initializing an integer number thet will be used for scraping all the product link (to solve the pagination
-            of the web page)
-        */
+      Initializing an integer number thet will be used for scraping all the product link (to solve the pagination
+      of the web page)
+    */
     let pageNumber = 1;
     // While the condition is true, the scraper will continue scraping the elements
     while (true) {
@@ -29,9 +29,9 @@ const blueVerdProductLinksScraper = async (url, page) => {
         // The element found will be pushed to the products array
         products.push(links);
         /* 
-                    Incrementing the page number, soo the scraper will be able to go check if in the next page 
-                    is present something we want to scraper-
-                */
+          Incrementing the page number, soo the scraper will be able to go check if in the next page 
+          is present something we want to scraper-
+        */
         pageNumber = pageNumber + 1;
       }
     }

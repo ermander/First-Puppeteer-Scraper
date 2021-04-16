@@ -22,12 +22,13 @@ const { checkMaterials, createCVS } = require("./tools/tools");
 const main = async () => {
   try {
     // Creating an instance of puppeteer browser, soo we can pass it throw the scraping functions
-    const browser = await puppeteer.launch({ headless: false });
+    // Making the browser headless
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     // Disabling JavaScript, CSS and Images to speed up the scraper
     await page.setJavaScriptEnabled(true);
     await page.setRequestInterception(true);
-    await page.on("request", (req) => {
+    page.on("request", (req) => {
       if (
         req.resourceType() == "stylesheet" ||
         req.resourceType() == "font" ||
@@ -39,8 +40,8 @@ const main = async () => {
       }
     });
     /*
-        LENVERS
-      */
+      LENVERS
+    */
     console.log("Launcing the scraper");
     const lenversProductsLinks = await lenversProductLinksScraper(
       lenversLinks.productListUrl,
@@ -51,8 +52,8 @@ const main = async () => {
       page
     );
     /* 
-        Blue Verd
-      */
+      Blue Verd
+    */
     const blueVerdProductsLink = await blueVerdProductLinksScraper(
       blueVerdLinks,
       page
