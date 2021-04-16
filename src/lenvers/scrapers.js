@@ -41,7 +41,7 @@ const lenversProductLinksScraper = async (url, page) => {
 const lenversProductInfoesScraper = async (links, page) => {
   try {
     const infoes = []
-    for(let i = 165; i < links.length; i++){
+    for(let i = 65; i < links.length; i++){
       console.log(`Currently scraping page ${lenversLinks.homepage + links[i]}`)
       // Going to the specified url
       await page.goto(lenversLinks.homepage + links[i])
